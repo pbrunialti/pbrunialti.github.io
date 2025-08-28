@@ -1,0 +1,130 @@
+<html stopthemadness-user-select="true">
+  <head>
+    <title>B-exam Bingo</title>
+    <style type="text/css">
+      .grid {
+      margin: 1em auto;
+      border-collapse: collapse;
+      }
+      
+      .grid td {
+      cursor: pointer;
+      width: 100px;
+      height: 100px;
+      border: 1px solid #ccc;
+      text-align: center;
+      font-family: sans-serif;
+      font-size: 13px;
+      }
+      
+      .grid td.clicked {
+      background-color: yellow;
+      font-weight: bold;
+      }		</style>
+  </head>
+  <body>
+    <center>
+      <h1>
+	B-EXAM BINGO</h1>
+    </center>
+    <script type="text/javascript">
+      
+      function shuffle(array) {
+        var currentIndex = array.length, temporaryValue, randomIndex;
+      
+        // While there remain elements to shuffle...
+        while (0 !== currentIndex) {
+      
+          // Pick a remaining element...
+          randomIndex = Math.floor(Math.random() * currentIndex);
+          currentIndex -= 1;
+      
+          // And swap it with the current element.
+          temporaryValue = array[currentIndex];
+          array[currentIndex] = array[randomIndex];
+          array[randomIndex] = temporaryValue;
+        }
+      
+        return array;
+      }
+      
+      function clickableGrid(rows, cols, callback) {
+        var i = 0;
+        var grid = document.createElement('table');
+        var squares = shuffle([
+          'committee member is late', 
+          'forget to mute/unmute', 
+          'pet in background', 
+          'cheesy virtual background', 
+          'awkward silence', 
+          'audience member clearly multitasking', 
+          'first slides dumbed down', 
+          'problems with screen sharing', 
+          'not funny joke', 
+          'actually funny joke', 
+          'audience member muted with camera off', 
+          'parents ask a question', 
+          'you are lost by slide 3', 
+          'someone mentions the plague', 
+          '\"unprecedented\"', 
+          'goes over time', 
+          'discussion of how to fill out paperwork', 
+          '\"What are the applications?\"', 
+          'strange webcam angle', 
+          'advisor jumps in to answer question', 
+          'time zone confusion', 
+          'technobabble', 
+          '\"trivial\" twice in a sentence',
+          'audible COVID-related sigh',
+          'audience member snacking',
+          'confusion over the zoom host',
+          'zoom waiting room confusion',
+          'mystery audience member nobody knows',
+          'audience member falls asleep', 
+          'mention of baking',
+          'someone counts Nerode students',
+          'double negative',
+          'mention of alternate realities/universes',
+          'zoom applause reaction',
+          'rapid-fire language switching',
+          'speaking Romainian',
+          'forced laughter',
+          'plush toys in background'
+        ]);
+      
+        grid.className = 'grid';
+
+        for (var r = 0; r < rows; ++r) {
+	  var tr = grid.appendChild(document.createElement('tr'));
+	  for (var c = 0; c < cols; ++c) {
+	    var cell = tr.appendChild(document.createElement('td'));
+	      if(r == 2 && c == 2){
+	        cell.innerHTML = "Smaranda has been awake since 5am </br> (free space)";
+	      }
+	      else{
+	        cell.innerHTML = squares[i];
+	      }
+	    i++;
+	    cell.addEventListener('click', (function(el, r, c) {
+              return function() {
+		callback(el, r, c);
+	      }
+	    })(cell, r, c), false);
+	  }
+	}
+	return grid;
+      }
+					      
+      var grid = clickableGrid(5, 5, function(el, row, col) {
+	if(el.className == 'clicked'){
+  	  el.className = ''  
+	}
+	else{
+  	  el.className = 'clicked'
+	}
+      });
+					      
+      document.body.appendChild(grid);
+    </script>
+  </body>
+</html>
