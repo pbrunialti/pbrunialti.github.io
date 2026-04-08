@@ -40,14 +40,23 @@ h2 {
   text-decoration:none;
 }
 
-#banner a:hover {
-  color: #df00a7;
+a:hover {
+  background: linear-gradient(270deg, red, orange, yellow, green, blue, indigo, violet);
+  background-size: 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: rainbow 3s linear infinite;
+}
+
+@keyframes rainbow {
+  0% { background-position: 0%; }
+  100% { background-position: 400%; }
 }
 
 nav {
   width:100%;
   min-width:400px;
-  margin 20px, 0px;
+  margin: 20px, 0px;
 }
 
 nav ul {
