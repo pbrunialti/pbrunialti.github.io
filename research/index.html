@@ -1,69 +1,217 @@
 <html>
   <head>
-    <link href="../style/style.css" rel="stylesheet" type="text/css" />
-    <link href="../images/conedeluz.png" rel="icon" type="image/png" />
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script"
-	    async
-	    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-    </script>
-    <title>Pedro</title>
-  </head>
+<link href="../style/style.css" rel="stylesheet" type="text/css" />
+<link href="../images/conedeluz.png" rel="icon" type="image/png" />
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script"
+async
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+<title>Pedro</title>
+<style>
+/* Expand/collapse behavior only -- no font/size/color overrides, inherits from style.css */
+details.expand-section {
+margin-bottom: 1em;
+      }
 
-  
-  <body>
-    <div id="container">
-      <div id="banner">
-	<h1>
-	  <a href="../index.html">Pedro </a> | Research</h1>
-      </div>
-      <nav>
-	<ul>
-	  <li>
-	    <a href="../index.html">
-	      About
-	    </a>
-	  </li>
-	  <li>
-	    <a href="../research/index.html">
-	      Research
-	    </a>
-	  </li>
-	  <li>
-	    <a href="../teaching/index.html">
-	      Teaching
-	    </a>
-	  </li>
-	  <li>
-	    <a href="../notes/index.html">
-	      Notes
-	    </a>
-	  </li>
-	</ul>
-      </nav>
-      <div id="page">
-	<div id="content">
-	  <h2>
-	    Papers and Preprints
-	  </h2>
-	 
+details.expand-section > summary {
+cursor: pointer;
+list-style: none;
+      }
 
-<p><span style="font-size: 21px;"
-	 <h2>
-		<b>
-	    • A bijection for tuples of commuting permutations and a log-concavity conjecture
-	  </h2> </b>
-	  <p>
-	     With Abdelmalek Abdesselam, Tristan Doan and Philip Vellie
-	  </p>
-	  <p>
-		<i>Research in Number Theory (2024) </i> <a href="https://arxiv.org/abs/2309.09407">[arXiv]</a>   
-	  </p>
-	  <h2> 
+details.expand-section > summary::-webkit-details-marker {
+display: none;
+      }
 
-	  </ul>
-	</div>
-      </div>
-    </div>  
-  </body>
+details.expand-section > summary::before {
+content: "▶";
+color: #2596be;
+margin-right: 0.4em;
+      }
+
+details.expand-section[open] > summary::before {
+content: "▼";
+      }
+
+.paper-list,
+.paper-list li,
+.paper-list h3,
+.paper-list p {
+color: black;
+      }
+
+.paper-list li::marker {
+color: #2596be;
+      }
+
+.paper-meta {
+margin: 0.15em 0;
+      }
+
+.paper-list h3 {
+margin-bottom: 0.15em;
+      }
+</style>
+</head>
+
+<body>
+<div id="container">
+<div id="banner">
+<h1>
+<a href="../index.html">Pedro </a> | Research</h1>
+</div>
+<nav>
+<ul>
+<li>
+<a href="../index.html">
+          About
+</a>
+</li>
+<li>
+<a href="../research/index.html">
+          Research
+</a>
+</li>
+<li>
+<a href="../teaching/index.html">
+          Teaching
+</a>
+</li>
+<li>
+<a href="../notes/index.html">
+          Notes
+</a>
+</li>
+</ul>
+</nav>
+<div id="page">
+<div id="content">
+
+<p>
+       My research lies within the realm of homotopy theory, algebraic topology and mathematical physics. Below you can find a short description on current projects as well as my preprints and publications. 
+</p>
+
+<details class="expand-section">
+<summary><p style="display:inline;">Extended reflection TQFTs</p></summary>
+<p>
+          A topological quantum field theory in the sense of Atiyah and Segal is a symmetric monoidal functor
+
+$$Z : \mathrm{Bord}_{(n,n-1)}(G) \to \mathcal{C},$$
+
+where the bordisms carry a tangential structure specified by a map \(G \to O(n)\). Allowing bordisms between bordisms down to points gives the fully extended version, a symmetric monoidal functor \(Z : \mathrm{Bord}_n(G) \to \mathcal{C}\) out of a symmetric monoidal \((\infty,n)\)-category. Freed and Hopkins study symmetry types \((H_n, \rho_n)\) and construct a canonical extension
+
+$$1 \to H_n \to \hat H_n \to \{\pm 1\} \to 1,$$
+
+split by a choice of hyperplane reflection. This extension produces an involution sending an \(H_n\)-manifold to one with the "opposite" structure, which gives a \(\mathbb{Z}/2\)-action on \(\mathrm{Bord}_{(n,n-1)}(H_n)\). They define a reflection theory as an equivariant symmetric monoidal functor out of this bordism category.
+
+My work extends this to the fully extended setting, using the \(n\)-fold complete Segal space model of Calaque and Scheimbauer. I show that \(\mathrm{Bord}_n(H_n)\) carries a strict \(\mathbb{Z}/2\)-action that makes it a \(\mathbb{Z}/2\)-symmetric monoidal \(n\)-fold complete Segal space. I then define reflection TQFTs as a derived mapping space in the projective model structure on \(\mathbb{Z}/2\)-objects, and prove that this space is equivalent to the homotopy fixed points
+
+$$\mathrm{Fun}^\otimes(\mathrm{Bord}_n(H_n), \mathcal{C})^{h\mathbb{Z}/2}.$$
+
+It follows that \(\tau(Z(Y)) \simeq Z(\alpha Y)\) for every object \(Y\), where \(\tau\) is the action on the target and \(\alpha\) is the involution. Take the target to be the super Morita category \(s\mathrm{Alg}_1(\mathbb{C})\) with complex conjugation, and write \(A = Z(pt_+)\). Then the result gives
+
+$$\overline{A} \simeq A^{sop}.$$
+
+</p>
+</details>
+
+<details class="expand-section">
+<summary><p style="display:inline;">Bi-incomplete free Tambara Functors, joint with Anna Marie Bohmann, Bert Guillou, David Mehrle, and Chris Portwoord</p></summary>
+<p>
+          <p>
+In equivariant stable homotopy theory one
+studies <em>genuine</em> \(G\)-spectra, which are more refined than spectra with a \(G\)-action:
+a genuine \(G\)-spectrum \(X\) has homotopy groups
+\[
+\pi^H_n(X) := \pi_n(X^H)
+\]
+for every subgroup \(H \subseteq G\), and these fit together via restriction and transfer maps.
+For fixed \(n\), the collection \(\{\pi^H_n(X)\}_{H \subseteq G}\) carries the structure of a
+<em>\(G\)-Mackey functor</em>. If \(X\) is a genuine commutative \(G\)-ring spectrum, then
+\(\{\pi^H_0(X)\}_{H \subseteq G}\) is moreover a <em>\(G\)-Tambara functor</em>, which has
+multiplicative norm maps in addition. Mackey functors are thus the equivariant analogue of abelian
+groups, and Tambara functors the equivariant analogue of commutative rings.
+</p>
+
+<p>
+In joint work with Mehrle, Bohmann, Guillou and Portwood, we generalize the classification of
+Hill, Mehrle and Quigley to bi-incomplete Tambara functors. A <em>bi-incomplete Tambara functor</em>
+is the analogue of an \(\mathcal{O}\)-Tambara functor in which the underlying Mackey functor need not be
+complete, that is, not all transfer maps are required to exist. Defining one therefore requires a
+<em>compatible pair</em> of transfer systems \((\mathcal{O}_m, \mathcal{O}_a)\), where \(\mathcal{O}_m\) controls the norm
+maps (the multiplicative structure) and \(\mathcal{O}_a\) controls the transfers (the additive structure).
+In particular, an \((\mathcal{O}_m, \mathcal{O}_a)\)-Tambara functor has an underlying \(\mathcal{O}_a\)-Mackey functor.
+Our two main results are the following.
+</p>
+
+<p>
+<strong>Theorem.</strong>
+<em>Let \(\underline{A}^{\mathcal{O}_m}_{\mathcal{O}_a}[x_{G/H}]\) be the free \((\mathcal{O}_m, \mathcal{O}_a)\)-Tambara functor
+generated at level \(G/H\). If \(H \to G\) is in \(\mathcal{O}_m\) and
+\(\iota^*_H \mathcal{O}_m = \mathcal{O}_{\mathrm{triv}}\), then \(\underline{A}^{\mathcal{O}_m}_{\mathcal{O}_a}[x_{G/H}]\) is
+free as an \(\mathcal{O}_a\)-Mackey functor.</em>
+</p>
+
+<p>
+<strong>Theorem.</strong>
+<em>If \(G\) is solvable and \(\underline{A}^{\mathcal{O}_m}_{\mathcal{O}_a}[x_{G/H}]\) is free as an
+\(\mathcal{O}_a\)-Mackey functor, then \(H \to G\) is in \(\mathcal{O}_m\).</em>
+</p>
+</p>
+</details>
+
+<details class="expand-section">
+<summary><p style="display:inline;">Trees associated with unitary partition complexes,  joint with Julie Bergner, Eleftherios Chatzitheodoridis and Josh Turner</p></summary>
+<p>
+          <p>
+This project  concerns <em>unitary partition complexes</em>. Arone introduced the notion of the
+unitary partition complex \(\mathcal{L}_n\), the geometric realization of the topological poset of
+<em>unitary partitions</em> of \(\mathbb{C}^n\). A unitary partition is a collection of pairwise
+orthogonal, non-zero, proper subspaces of \(\mathbb{C}^n\) that together span \(\mathbb{C}^n\), and
+the poset structure is given by coarsening.
+</p>
+
+<p>
+In joint work with Bergner, Chatzitheodoridis and Turner, we construct a topological poset of trees
+whose classifying space is homotopy equivalent to \(\mathcal{L}_n\). This is the unitary analogue of
+the main result of Heuts and Moerdijk. More concretely, we have the following.
+</p>
+
+<p>
+<strong>Theorem.</strong>
+<em>Let \(\mathcal{T}_n\) be the topological poset of isomorphism classes of finite rooted trees
+without unary vertices whose set of leaves is a unitary partition of \(\mathbb{C}^n\). Then there
+are functors
+\[
+\mathcal{L}_n \xleftarrow{\;\zeta_n\;} \bigl(\Delta \downarrow N(\mathcal{L}_n)\bigr) \xrightarrow{\;\varphi_n\;} \mathcal{T}_n
+\]
+which induce homotopy equivalences on classifying spaces.</em>
+</p>
+</p>
+</details>
+
+<h2>
+        Papers and Preprints
+</h2>
+
+<ul class="paper-list">
+<li>
+<h3>
+<b>
+          A bijection for tuples of commuting permutations and a log-concavity conjecture
+</b>
+</h3>
+<p class="paper-meta">
+        With Abdelmalek Abdesselam, Tristan Doan and Philip Vellie
+</p>
+<p class="paper-meta">
+<i>Research in Number Theory (2024)</i> <a href="https://arxiv.org/abs/2309.09407">[arXiv]</a>
+</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+</body>
 </html>
